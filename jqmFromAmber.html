@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jqmFromAmber</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<script type="text/javascript" src="../js/lib/jQuery/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jQuery/jquery-ui-1.10.3.custom.min.js"></script>  
+	
+	<!--Load sequence is important: amber, jqm mobileinit handler, jqm -->
+	<script type="text/javascript" charset="utf-8" src="../js/amber.js" ></script>
+	<script type='text/javascript' charset="utf-8">
+	//Use JQM mobileinit for loading Amber
+	$(document).on('mobileinit', function(){
+		$.mobile.autoInitializePage = false;
+		loadAmber({
+			packages: ['Jqm-Canvas', 'Jqm-ToDo'],
+			ready: function(){
+					$.mobile.initializePage();
+					smalltalk.Browser._open();
+			}});
+	});
+	</script>
+	<script type='text/javascript' src='../js/lib/jQuery/jquery.mobile-1.3.1.min.js'></script>
+	<link rel="stylesheet" href="../css/jquery.mobile-1.3.1.min.css" />
+</head> 
+
+<body style="margin:0; padding: 0;">
+<div data-role="page" id="intro">
+<div data-role="header"><h1>JQM from Amber</h1></div>
+<div data-role="content">
+	<p id="description">A <a href="http://jquerymobile.com/">jQuery Mobile</a> wrapper for Amber Smalltalk.</p> 
+	<div data-role="collapsible">
+		<h4>Example: ToDo List</h4>
+		<p>Make sure amber server started. UI are built by JqmCanvas. Tasks are stored html5 local storage.</p>
+		<ul data-role="listview">
+		<li><a href="todo.html" target="_blank">ToDo</a></li>
+		</ul>
+		<p>Please see 'Jqm-ToDo' package for details</p>
+	</div>
+</div>
+</div>
+</body> 
+
+</html> 

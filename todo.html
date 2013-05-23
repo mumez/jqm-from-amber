@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Amber JQM ToDo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<script type="text/javascript" src="../js/lib/jQuery/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jQuery/jquery-ui-1.10.3.custom.min.js"></script>  
+	
+	<!--Load sequence is important: amber, jqm mobileinit handler, jqm -->
+	<script type="text/javascript" charset="utf-8" src="../js/amber.js" ></script>
+	<script type='text/javascript' charset="utf-8">
+	//Use JQM mobileinit for loading Amber
+	$(document).on('mobileinit', function(){
+		$.mobile.autoInitializePage = false;
+		loadAmber({
+			packages: ['Jqm-Canvas', 'Jqm-ToDo'],
+			ready: function(){
+					smalltalk.MobileToDo._main();
+					console.log('#amber page loaded');
+					$.mobile.initializePage();
+					console.log('#jqm page initialized');
+			}});
+	});
+	</script>
+	<script type='text/javascript' src='../js/lib/jQuery/jquery.mobile-1.3.1.min.js'></script>
+	<link rel="stylesheet" href="../css/jquery.mobile-1.3.1.min.css"/>
+</head>
+<body>
+</body>
+</html>
