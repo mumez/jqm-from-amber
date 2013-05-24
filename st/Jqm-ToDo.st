@@ -113,23 +113,20 @@ updateListPart
 
 MobileToDo class instanceVariableNames: 'current'!
 
-!MobileToDo class methodsFor: 'opening'!
+!MobileToDo class methodsFor: 'accessing'!
 
 current
 	^ current ifNil: [current := super new]
-!
-
-main
-	current ifNil: [
-		current := self new.
-	].
-	self current start
 ! !
 
-!MobileToDo class methodsFor: 'testing'!
+!MobileToDo class methodsFor: 'opening'!
 
-isLoaded
-	^ current notNil
+main
+	self current start
+!
+
+updateAfterOpen
+	self current updateListPart
 ! !
 
 Object subclass: #MobileToDoItem
@@ -163,6 +160,11 @@ text: aString
 ! !
 
 !MobileToDoItem methodsFor: 'private'!
+
+initialize
+	super initialize.
+	id := self newUuid
+!
 
 newUuid
 	| randomGen partGen |
@@ -229,7 +231,7 @@ storage: aStorage
 !MobileToDoStorage methodsFor: 'actions'!
 
 load
-	self loadItems
+	items := self loadItems
 !
 
 save
@@ -293,7 +295,7 @@ initialize
 	self initItems.
 	
 	"For debug"
-	"self storage removeItem: 'MobileTodoList'"
+	"self storage removeItem: 'MobileToDoList'"
 ! !
 
 !MobileToDoStorage methodsFor: 'private'!
@@ -302,12 +304,16 @@ loadItems
 	| jsonStr loadedJson |
 	jsonStr := self storage getItem: 'MobileToDoList'.
 	jsonStr ifNil: [self initItems; saveItems. ^#()].
+	console log: '#loadItems: ', jsonStr.
 	loadedJson := JSON parse: jsonStr.
 	^ loadedJson collect: [ :each | MobileToDoItem fromDictionary: each ]
 !
 
 saveItems
-	self storage setItem: 'MobileToDoList' value: (self items asJSONString).
+	| jsonStr |
+	jsonStr := self items asJSONString.
+	self storage setItem: 'MobileToDoList' value: jsonStr.
+	console log: 'saveItems: ', jsonStr.
 	^self items
 ! !
 

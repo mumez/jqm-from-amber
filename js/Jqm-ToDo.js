@@ -303,7 +303,7 @@ smalltalk.MobileToDo.klass.iVarNames = ['current'];
 smalltalk.addMethod(
 smalltalk.method({
 selector: "current",
-category: 'opening',
+category: 'accessing',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
@@ -326,42 +326,32 @@ smalltalk.MobileToDo.klass);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "isLoaded",
-category: 'testing',
+selector: "main",
+category: 'opening',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(self["@current"])._notNil();
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"isLoaded",{},smalltalk.MobileToDo.klass)})},
+_st(_st(self)._current())._start();
+return self}, function($ctx1) {$ctx1.fill(self,"main",{},smalltalk.MobileToDo.klass)})},
 args: [],
-source: "isLoaded\x0a\x09^ current notNil",
-messageSends: ["notNil"],
+source: "main\x0a\x09self current start\x0a\x09\x0a\x09\x0a\x09",
+messageSends: ["start", "current"],
 referencedClasses: []
 }),
 smalltalk.MobileToDo.klass);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "main",
+selector: "updateAfterOpen",
 category: 'opening',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=self["@current"];
-if(($receiver = $1) == nil || $receiver == undefined){
-self["@current"]=_st(self)._new();
-self["@current"];
-} else {
-$1;
-};
-_st(_st(self)._current())._start();
-return self}, function($ctx1) {$ctx1.fill(self,"main",{},smalltalk.MobileToDo.klass)})},
+_st(_st(self)._current())._updateListPart();
+return self}, function($ctx1) {$ctx1.fill(self,"updateAfterOpen",{},smalltalk.MobileToDo.klass)})},
 args: [],
-source: "main\x0a\x09current ifNil: [\x0a\x09\x09current := self new.\x0a\x09].\x0a\x09self current start\x0a\x09\x0a\x09\x0a\x09",
-messageSends: ["ifNil:", "new", "start", "current"],
+source: "updateAfterOpen\x0a\x09self current updateListPart",
+messageSends: ["updateListPart", "current"],
 referencedClasses: []
 }),
 smalltalk.MobileToDo.klass);
@@ -404,6 +394,23 @@ return self}, function($ctx1) {$ctx1.fill(self,"id:",{anId:anId},smalltalk.Mobil
 args: ["anId"],
 source: "id: anId\x0a\x09id := anId",
 messageSends: [],
+referencedClasses: []
+}),
+smalltalk.MobileToDoItem);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "initialize",
+category: 'private',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+smalltalk.Object.fn.prototype._initialize.apply(_st(self), []);
+self["@id"]=_st(self)._newUuid();
+return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.MobileToDoItem)})},
+args: [],
+source: "initialize\x0a\x09super initialize.\x0a\x09id := self newUuid",
+messageSends: ["initialize", "newUuid"],
 referencedClasses: []
 }),
 smalltalk.MobileToDoItem);
@@ -725,7 +732,7 @@ self["@storage"]=nil;
 _st(self)._initItems();
 return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.MobileToDoStorage)})},
 args: [],
-source: "initialize\x0a\x09storage := nil.\x0a\x09self initItems.\x0a\x09\x0a\x09\x22For debug\x22\x0a\x09\x22self storage removeItem: 'MobileTodoList'\x22",
+source: "initialize\x0a\x09storage := nil.\x0a\x09self initItems.\x0a\x09\x0a\x09\x22For debug\x22\x0a\x09\x22self storage removeItem: 'MobileToDoList'\x22",
 messageSends: ["initItems"],
 referencedClasses: []
 }),
@@ -762,10 +769,10 @@ category: 'actions',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-_st(self)._loadItems();
+self["@items"]=_st(self)._loadItems();
 return self}, function($ctx1) {$ctx1.fill(self,"load",{},smalltalk.MobileToDoStorage)})},
 args: [],
-source: "load\x0a\x09self loadItems",
+source: "load\x0a\x09items := self loadItems",
 messageSends: ["loadItems"],
 referencedClasses: []
 }),
@@ -794,6 +801,7 @@ return $4;
 } else {
 $1;
 };
+_st(console)._log_(_st("#loadItems: ").__comma(jsonStr));
 loadedJson=_st($JSON())._parse_(jsonStr);
 $5=_st(loadedJson)._collect_((function(each){
 return smalltalk.withContext(function($ctx2) {
@@ -802,8 +810,8 @@ return _st($MobileToDoItem())._fromDictionary_(each);
 return $5;
 }, function($ctx1) {$ctx1.fill(self,"loadItems",{jsonStr:jsonStr,loadedJson:loadedJson},smalltalk.MobileToDoStorage)})},
 args: [],
-source: "loadItems\x0a\x09| jsonStr loadedJson |\x0a\x09jsonStr := self storage getItem: 'MobileToDoList'.\x0a\x09jsonStr ifNil: [self initItems; saveItems. ^#()].\x0a\x09loadedJson := JSON parse: jsonStr.\x0a\x09^ loadedJson collect: [ :each | MobileToDoItem fromDictionary: each ]",
-messageSends: ["getItem:", "storage", "ifNil:", "initItems", "saveItems", "parse:", "collect:", "fromDictionary:"],
+source: "loadItems\x0a\x09| jsonStr loadedJson |\x0a\x09jsonStr := self storage getItem: 'MobileToDoList'.\x0a\x09jsonStr ifNil: [self initItems; saveItems. ^#()].\x0a\x09console log: '#loadItems: ', jsonStr.\x0a\x09loadedJson := JSON parse: jsonStr.\x0a\x09^ loadedJson collect: [ :each | MobileToDoItem fromDictionary: each ]",
+messageSends: ["getItem:", "storage", "ifNil:", "initItems", "saveItems", "log:", ",", "parse:", "collect:", "fromDictionary:"],
 referencedClasses: ["JSON", "MobileToDoItem"]
 }),
 smalltalk.MobileToDoStorage);
@@ -912,15 +920,18 @@ selector: "saveItems",
 category: 'private',
 fn: function (){
 var self=this;
+var jsonStr;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-_st(_st(self)._storage())._setItem_value_("MobileToDoList",_st(_st(self)._items())._asJSONString());
+jsonStr=_st(_st(self)._items())._asJSONString();
+_st(_st(self)._storage())._setItem_value_("MobileToDoList",jsonStr);
+_st(console)._log_(_st("saveItems: ").__comma(jsonStr));
 $1=_st(self)._items();
 return $1;
-}, function($ctx1) {$ctx1.fill(self,"saveItems",{},smalltalk.MobileToDoStorage)})},
+}, function($ctx1) {$ctx1.fill(self,"saveItems",{jsonStr:jsonStr},smalltalk.MobileToDoStorage)})},
 args: [],
-source: "saveItems\x0a\x09self storage setItem: 'MobileToDoList' value: (self items asJSONString).\x0a\x09^self items",
-messageSends: ["setItem:value:", "asJSONString", "items", "storage"],
+source: "saveItems\x0a\x09| jsonStr |\x0a\x09jsonStr := self items asJSONString.\x0a\x09self storage setItem: 'MobileToDoList' value: jsonStr.\x0a\x09console log: 'saveItems: ', jsonStr.\x0a\x09^self items",
+messageSends: ["asJSONString", "items", "setItem:value:", "storage", "log:", ","],
 referencedClasses: []
 }),
 smalltalk.MobileToDoStorage);

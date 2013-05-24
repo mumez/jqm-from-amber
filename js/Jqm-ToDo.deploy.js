@@ -260,34 +260,24 @@ smalltalk.MobileToDo.klass);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "isLoaded",
-fn: function (){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(self["@current"])._notNil();
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"isLoaded",{},smalltalk.MobileToDo.klass)})},
-messageSends: ["notNil"]}),
-smalltalk.MobileToDo.klass);
-
-smalltalk.addMethod(
-smalltalk.method({
 selector: "main",
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=self["@current"];
-if(($receiver = $1) == nil || $receiver == undefined){
-self["@current"]=_st(self)._new();
-self["@current"];
-} else {
-$1;
-};
 _st(_st(self)._current())._start();
 return self}, function($ctx1) {$ctx1.fill(self,"main",{},smalltalk.MobileToDo.klass)})},
-messageSends: ["ifNil:", "new", "start", "current"]}),
+messageSends: ["start", "current"]}),
+smalltalk.MobileToDo.klass);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "updateAfterOpen",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(_st(self)._current())._updateListPart();
+return self}, function($ctx1) {$ctx1.fill(self,"updateAfterOpen",{},smalltalk.MobileToDo.klass)})},
+messageSends: ["updateListPart", "current"]}),
 smalltalk.MobileToDo.klass);
 
 
@@ -320,6 +310,18 @@ return smalltalk.withContext(function($ctx1) {
 self["@id"]=anId;
 return self}, function($ctx1) {$ctx1.fill(self,"id:",{anId:anId},smalltalk.MobileToDoItem)})},
 messageSends: []}),
+smalltalk.MobileToDoItem);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "initialize",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+smalltalk.Object.fn.prototype._initialize.apply(_st(self), []);
+self["@id"]=_st(self)._newUuid();
+return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.MobileToDoItem)})},
+messageSends: ["initialize", "newUuid"]}),
 smalltalk.MobileToDoItem);
 
 smalltalk.addMethod(
@@ -590,7 +592,7 @@ selector: "load",
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-_st(self)._loadItems();
+self["@items"]=_st(self)._loadItems();
 return self}, function($ctx1) {$ctx1.fill(self,"load",{},smalltalk.MobileToDoStorage)})},
 messageSends: ["loadItems"]}),
 smalltalk.MobileToDoStorage);
@@ -617,6 +619,7 @@ return $4;
 } else {
 $1;
 };
+_st(console)._log_(_st("#loadItems: ").__comma(jsonStr));
 loadedJson=_st($JSON())._parse_(jsonStr);
 $5=_st(loadedJson)._collect_((function(each){
 return smalltalk.withContext(function($ctx2) {
@@ -624,7 +627,7 @@ return _st($MobileToDoItem())._fromDictionary_(each);
 }, function($ctx2) {$ctx2.fillBlock({each:each},$ctx1)})}));
 return $5;
 }, function($ctx1) {$ctx1.fill(self,"loadItems",{jsonStr:jsonStr,loadedJson:loadedJson},smalltalk.MobileToDoStorage)})},
-messageSends: ["getItem:", "storage", "ifNil:", "initItems", "saveItems", "parse:", "collect:", "fromDictionary:"]}),
+messageSends: ["getItem:", "storage", "ifNil:", "initItems", "saveItems", "log:", ",", "parse:", "collect:", "fromDictionary:"]}),
 smalltalk.MobileToDoStorage);
 
 smalltalk.addMethod(
@@ -705,13 +708,16 @@ smalltalk.method({
 selector: "saveItems",
 fn: function (){
 var self=this;
+var jsonStr;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-_st(_st(self)._storage())._setItem_value_("MobileToDoList",_st(_st(self)._items())._asJSONString());
+jsonStr=_st(_st(self)._items())._asJSONString();
+_st(_st(self)._storage())._setItem_value_("MobileToDoList",jsonStr);
+_st(console)._log_(_st("saveItems: ").__comma(jsonStr));
 $1=_st(self)._items();
 return $1;
-}, function($ctx1) {$ctx1.fill(self,"saveItems",{},smalltalk.MobileToDoStorage)})},
-messageSends: ["setItem:value:", "asJSONString", "items", "storage"]}),
+}, function($ctx1) {$ctx1.fill(self,"saveItems",{jsonStr:jsonStr},smalltalk.MobileToDoStorage)})},
+messageSends: ["asJSONString", "items", "setItem:value:", "storage", "log:", ","]}),
 smalltalk.MobileToDoStorage);
 
 smalltalk.addMethod(
