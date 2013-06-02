@@ -39,10 +39,16 @@ removeItemAt: anId
 	self updateListPart
 ! !
 
+!MobileToDo methodsFor: 'factory'!
+
+storageClass
+	^ MobileToDoStorage
+! !
+
 !MobileToDo methodsFor: 'initialization'!
 
 initialize
-	storage := MobileToDoStorage new load
+	storage := self storageClass new load
 ! !
 
 !MobileToDo methodsFor: 'opening'!
@@ -221,7 +227,7 @@ size
 !
 
 storage
-	^storage ifNil: [storage := localStorage]
+	^storage ifNil: [storage := self defaultStorage]
 !
 
 storage: aStorage
@@ -231,7 +237,7 @@ storage: aStorage
 !MobileToDoStorage methodsFor: 'actions'!
 
 load
-	items := self loadItems
+	self loadItems
 !
 
 save
@@ -263,6 +269,12 @@ removeAt: anId ifAbsent: aBlock
 	| found |
 	found := self detect: [:each | each id = anId] ifNone: [^aBlock value].
 	self remove: found
+! !
+
+!MobileToDoStorage methodsFor: 'defaults'!
+
+defaultStorage
+	^ localStorage
 ! !
 
 !MobileToDoStorage methodsFor: 'enumeration'!
@@ -306,14 +318,13 @@ loadItems
 	jsonStr ifNil: [self initItems; saveItems. ^#()].
 	console log: '#loadItems: ', jsonStr.
 	loadedJson := JSON parse: jsonStr.
-	^ loadedJson collect: [ :each | MobileToDoItem fromDictionary: each ]
+	items := loadedJson collect: [ :each | MobileToDoItem fromDictionary: each ]
 !
 
 saveItems
 	| jsonStr |
 	jsonStr := self items asJSONString.
 	self storage setItem: 'MobileToDoList' value: jsonStr.
-	console log: 'saveItems: ', jsonStr.
-	^self items
+	console log: 'saveItems: ', jsonStr
 ! !
 

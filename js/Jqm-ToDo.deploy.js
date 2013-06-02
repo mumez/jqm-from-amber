@@ -23,11 +23,10 @@ smalltalk.method({
 selector: "initialize",
 fn: function (){
 var self=this;
-function $MobileToDoStorage(){return smalltalk.MobileToDoStorage||(typeof MobileToDoStorage=="undefined"?nil:MobileToDoStorage)}
 return smalltalk.withContext(function($ctx1) { 
-self["@storage"]=_st(_st($MobileToDoStorage())._new())._load();
+self["@storage"]=_st(_st(_st(self)._storageClass())._new())._load();
 return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.MobileToDo)})},
-messageSends: ["load", "new"]}),
+messageSends: ["load", "new", "storageClass"]}),
 smalltalk.MobileToDo);
 
 smalltalk.addMethod(
@@ -214,6 +213,20 @@ var $1;
 $1=self["@storage"];
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"storage",{},smalltalk.MobileToDo)})},
+messageSends: []}),
+smalltalk.MobileToDo);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "storageClass",
+fn: function (){
+var self=this;
+function $MobileToDoStorage(){return smalltalk.MobileToDoStorage||(typeof MobileToDoStorage=="undefined"?nil:MobileToDoStorage)}
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=$MobileToDoStorage();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"storageClass",{},smalltalk.MobileToDo)})},
 messageSends: []}),
 smalltalk.MobileToDo);
 
@@ -503,6 +516,19 @@ smalltalk.MobileToDoStorage);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "defaultStorage",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=localStorage;
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"defaultStorage",{},smalltalk.MobileToDoStorage)})},
+messageSends: []}),
+smalltalk.MobileToDoStorage);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "detect:ifNone:",
 fn: function (aBlock,aNoneBlock){
 var self=this;
@@ -592,7 +618,7 @@ selector: "load",
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-self["@items"]=_st(self)._loadItems();
+_st(self)._loadItems();
 return self}, function($ctx1) {$ctx1.fill(self,"load",{},smalltalk.MobileToDoStorage)})},
 messageSends: ["loadItems"]}),
 smalltalk.MobileToDoStorage);
@@ -606,7 +632,7 @@ var jsonStr,loadedJson;
 function $JSON(){return smalltalk.JSON||(typeof JSON=="undefined"?nil:JSON)}
 function $MobileToDoItem(){return smalltalk.MobileToDoItem||(typeof MobileToDoItem=="undefined"?nil:MobileToDoItem)}
 return smalltalk.withContext(function($ctx1) { 
-var $1,$2,$3,$4,$5;
+var $1,$2,$3,$4;
 jsonStr=_st(_st(self)._storage())._getItem_("MobileToDoList");
 $1=jsonStr;
 if(($receiver = $1) == nil || $receiver == undefined){
@@ -621,12 +647,11 @@ $1;
 };
 _st(console)._log_(_st("#loadItems: ").__comma(jsonStr));
 loadedJson=_st($JSON())._parse_(jsonStr);
-$5=_st(loadedJson)._collect_((function(each){
+self["@items"]=_st(loadedJson)._collect_((function(each){
 return smalltalk.withContext(function($ctx2) {
 return _st($MobileToDoItem())._fromDictionary_(each);
 }, function($ctx2) {$ctx2.fillBlock({each:each},$ctx1)})}));
-return $5;
-}, function($ctx1) {$ctx1.fill(self,"loadItems",{jsonStr:jsonStr,loadedJson:loadedJson},smalltalk.MobileToDoStorage)})},
+return self}, function($ctx1) {$ctx1.fill(self,"loadItems",{jsonStr:jsonStr,loadedJson:loadedJson},smalltalk.MobileToDoStorage)})},
 messageSends: ["getItem:", "storage", "ifNil:", "initItems", "saveItems", "log:", ",", "parse:", "collect:", "fromDictionary:"]}),
 smalltalk.MobileToDoStorage);
 
@@ -710,13 +735,10 @@ fn: function (){
 var self=this;
 var jsonStr;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
 jsonStr=_st(_st(self)._items())._asJSONString();
 _st(_st(self)._storage())._setItem_value_("MobileToDoList",jsonStr);
 _st(console)._log_(_st("saveItems: ").__comma(jsonStr));
-$1=_st(self)._items();
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"saveItems",{jsonStr:jsonStr},smalltalk.MobileToDoStorage)})},
+return self}, function($ctx1) {$ctx1.fill(self,"saveItems",{jsonStr:jsonStr},smalltalk.MobileToDoStorage)})},
 messageSends: ["asJSONString", "items", "setItem:value:", "storage", "log:", ","]}),
 smalltalk.MobileToDoStorage);
 
@@ -755,14 +777,14 @@ return smalltalk.withContext(function($ctx1) {
 var $2,$1;
 $2=self["@storage"];
 if(($receiver = $2) == nil || $receiver == undefined){
-self["@storage"]=localStorage;
+self["@storage"]=_st(self)._defaultStorage();
 $1=self["@storage"];
 } else {
 $1=$2;
 };
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"storage",{},smalltalk.MobileToDoStorage)})},
-messageSends: ["ifNil:"]}),
+messageSends: ["ifNil:", "defaultStorage"]}),
 smalltalk.MobileToDoStorage);
 
 smalltalk.addMethod(
