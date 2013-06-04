@@ -24,9 +24,9 @@ selector: "initialize",
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-self["@storage"]=_st(_st(_st(self)._storageClass())._new())._load();
+self["@storage"]=_st(_st(self)._storageClass())._new();
 return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.MobileToDo)})},
-messageSends: ["load", "new", "storageClass"]}),
+messageSends: ["new", "storageClass"]}),
 smalltalk.MobileToDo);
 
 smalltalk.addMethod(
@@ -40,6 +40,17 @@ $1=_st(_st(self)._storage())._items();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"items",{},smalltalk.MobileToDo)})},
 messageSends: ["items", "storage"]}),
+smalltalk.MobileToDo);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "preOpen",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(_st(self)._storage())._load();
+return self}, function($ctx1) {$ctx1.fill(self,"preOpen",{},smalltalk.MobileToDo)})},
+messageSends: ["load", "storage"]}),
 smalltalk.MobileToDo);
 
 smalltalk.addMethod(
@@ -198,9 +209,10 @@ fn: function (){
 var self=this;
 function $JqmCanvas(){return smalltalk.JqmCanvas||(typeof JqmCanvas=="undefined"?nil:JqmCanvas)}
 return smalltalk.withContext(function($ctx1) { 
+_st(self)._preOpen();
 _st(self)._renderOn_(_st($JqmCanvas())._onJQuery_(_st("body")._asJQuery()));
 return self}, function($ctx1) {$ctx1.fill(self,"start",{},smalltalk.MobileToDo)})},
-messageSends: ["renderOn:", "onJQuery:", "asJQuery"]}),
+messageSends: ["preOpen", "renderOn:", "onJQuery:", "asJQuery"]}),
 smalltalk.MobileToDo);
 
 smalltalk.addMethod(

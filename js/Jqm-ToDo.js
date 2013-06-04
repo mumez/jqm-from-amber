@@ -31,11 +31,11 @@ category: 'initialization',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-self["@storage"]=_st(_st(_st(self)._storageClass())._new())._load();
+self["@storage"]=_st(_st(self)._storageClass())._new();
 return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.MobileToDo)})},
 args: [],
-source: "initialize\x0a\x09storage := self storageClass new load",
-messageSends: ["load", "new", "storageClass"],
+source: "initialize\x0a\x09storage := self storageClass new",
+messageSends: ["new", "storageClass"],
 referencedClasses: []
 }),
 smalltalk.MobileToDo);
@@ -54,6 +54,22 @@ return $1;
 args: [],
 source: "items\x0a\x09^self storage items",
 messageSends: ["items", "storage"],
+referencedClasses: []
+}),
+smalltalk.MobileToDo);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "preOpen",
+category: 'opening',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(_st(self)._storage())._load();
+return self}, function($ctx1) {$ctx1.fill(self,"preOpen",{},smalltalk.MobileToDo)})},
+args: [],
+source: "preOpen\x0a\x09self storage load.",
+messageSends: ["load", "storage"],
 referencedClasses: []
 }),
 smalltalk.MobileToDo);
@@ -245,11 +261,12 @@ fn: function (){
 var self=this;
 function $JqmCanvas(){return smalltalk.JqmCanvas||(typeof JqmCanvas=="undefined"?nil:JqmCanvas)}
 return smalltalk.withContext(function($ctx1) { 
+_st(self)._preOpen();
 _st(self)._renderOn_(_st($JqmCanvas())._onJQuery_(_st("body")._asJQuery()));
 return self}, function($ctx1) {$ctx1.fill(self,"start",{},smalltalk.MobileToDo)})},
 args: [],
-source: "start\x0a\x09\x0a\x09self renderOn: (JqmCanvas onJQuery: 'body' asJQuery)",
-messageSends: ["renderOn:", "onJQuery:", "asJQuery"],
+source: "start\x0a\x09self preOpen.\x0a\x09self renderOn: (JqmCanvas onJQuery: 'body' asJQuery)",
+messageSends: ["preOpen", "renderOn:", "onJQuery:", "asJQuery"],
 referencedClasses: ["JqmCanvas"]
 }),
 smalltalk.MobileToDo);

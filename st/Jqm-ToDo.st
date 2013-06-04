@@ -48,13 +48,17 @@ storageClass
 !MobileToDo methodsFor: 'initialization'!
 
 initialize
-	storage := self storageClass new load
+	storage := self storageClass new
 ! !
 
 !MobileToDo methodsFor: 'opening'!
 
+preOpen
+	self storage load.
+!
+
 start
-	
+	self preOpen.
 	self renderOn: (JqmCanvas onJQuery: 'body' asJQuery)
 ! !
 
