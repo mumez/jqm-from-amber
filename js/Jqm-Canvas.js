@@ -626,18 +626,39 @@ smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "pageId:class:with:",
+category: 'tags',
+fn: function (id,klass,aBlock){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $2,$3,$1;
+$2=_st(_st(self)._page())._id_(id);
+_st($2)._class_(klass);
+$3=_st($2)._with_(aBlock);
+$1=$3;
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"pageId:class:with:",{id:id,klass:klass,aBlock:aBlock},smalltalk.JqmCanvas)})},
+args: ["id", "klass", "aBlock"],
+source: "pageId: id class: klass with: aBlock\x0a\x09^(self page id: id) class:  klass; with: aBlock",
+messageSends: ["class:", "id:", "page", "with:"],
+referencedClasses: []
+}),
+smalltalk.JqmCanvas);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "pageId:with:",
 category: 'tags',
 fn: function (id,aBlock){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._pageId_(id))._with_(aBlock);
+$1=_st(_st(_st(self)._page())._id_(id))._with_(aBlock);
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"pageId:with:",{id:id,aBlock:aBlock},smalltalk.JqmCanvas)})},
 args: ["id", "aBlock"],
-source: "pageId: id with: aBlock\x0a\x09^(self pageId: id) with: aBlock",
-messageSends: ["with:", "pageId:"],
+source: "pageId: id with: aBlock\x0a\x09^(self page id: id) with: aBlock",
+messageSends: ["with:", "id:", "page"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -864,6 +885,22 @@ smalltalk.JqmCanvas.klass);
 
 
 smalltalk.addClass('JqmTagBrush', smalltalk.TagBrush, ['namespace'], 'Jqm-Canvas');
+smalltalk.addMethod(
+smalltalk.method({
+selector: "ariaLevel:",
+category: 'aria',
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._at_put_("aria-level",value);
+return self}, function($ctx1) {$ctx1.fill(self,"ariaLevel:",{value:value},smalltalk.JqmTagBrush)})},
+args: ["value"],
+source: "ariaLevel: value\x0a\x09self at: 'aria-level' put: value",
+messageSends: ["at:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
 smalltalk.addMethod(
 smalltalk.method({
 selector: "columnToggle",
@@ -1466,6 +1503,22 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "dataMini",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("mini","true");
+return self}, function($ctx1) {$ctx1.fill(self,"dataMini",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataMini\x0a\x09self dataAt: 'mini' put: 'true'",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "dataMini:",
 category: 'data attributes',
 fn: function (value){
@@ -1715,6 +1768,86 @@ _st(self)._dataAt_put_("theme",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataTheme:",{value:value},smalltalk.JqmTagBrush)})},
 args: ["value"],
 source: "dataTheme: value\x0a\x09self dataAt: 'theme' put: value",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeA",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","a");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeA",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataThemeA\x0a\x09self dataAt: 'theme' put: 'a'",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeB",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","b");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeB",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataThemeB\x0a\x09self dataAt: 'theme' put: 'b'",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeC",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","c");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeC",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataThemeC\x0a\x09self dataAt: 'theme' put: 'c'",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeD",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","d");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeD",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataThemeD\x0a\x09self dataAt: 'theme' put: 'd'",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeE",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","e");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeE",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataThemeE\x0a\x09self dataAt: 'theme' put: 'e'",
 messageSends: ["dataAt:put:"],
 referencedClasses: []
 }),
@@ -2030,6 +2163,22 @@ return self}, function($ctx1) {$ctx1.fill(self,"reflow",{},smalltalk.JqmTagBrush
 args: [],
 source: "reflow\x0a\x09self dataMode: 'reflow'",
 messageSends: ["dataMode:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "role:",
+category: 'aria',
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._at_put_("role",value);
+return self}, function($ctx1) {$ctx1.fill(self,"role:",{value:value},smalltalk.JqmTagBrush)})},
+args: ["value"],
+source: "role: value\x0a\x09self at: 'role' put: value",
+messageSends: ["at:put:"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);

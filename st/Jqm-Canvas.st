@@ -148,8 +148,12 @@ pageId: id
 	^self page id: id
 !
 
+pageId: id class: klass with: aBlock
+	^(self page id: id) class:  klass; with: aBlock
+!
+
 pageId: id with: aBlock
-	^(self pageId: id) with: aBlock
+	^(self page id: id) with: aBlock
 !
 
 panel
@@ -226,6 +230,30 @@ columnToggle
 	self dataMode: 'columntoggle'
 !
 
+dataMini
+	self dataAt: 'mini' put: 'true'
+!
+
+dataThemeA
+	self dataAt: 'theme' put: 'a'
+!
+
+dataThemeB
+	self dataAt: 'theme' put: 'b'
+!
+
+dataThemeC
+	self dataAt: 'theme' put: 'c'
+!
+
+dataThemeD
+	self dataAt: 'theme' put: 'd'
+!
+
+dataThemeE
+	self dataAt: 'theme' put: 'e'
+!
+
 horizontal
 	self dataType: 'horizontal'
 !
@@ -240,6 +268,16 @@ noAjax
 
 reflow
 	self dataMode: 'reflow'
+! !
+
+!JqmTagBrush methodsFor: 'aria'!
+
+ariaLevel: value
+	self at: 'aria-level' put: value
+!
+
+role: value
+	self at: 'role' put: value
 ! !
 
 !JqmTagBrush methodsFor: 'data attributes'!

@@ -456,15 +456,31 @@ smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "pageId:class:with:",
+fn: function (id,klass,aBlock){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $2,$3,$1;
+$2=_st(_st(self)._page())._id_(id);
+_st($2)._class_(klass);
+$3=_st($2)._with_(aBlock);
+$1=$3;
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"pageId:class:with:",{id:id,klass:klass,aBlock:aBlock},smalltalk.JqmCanvas)})},
+messageSends: ["class:", "id:", "page", "with:"]}),
+smalltalk.JqmCanvas);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "pageId:with:",
 fn: function (id,aBlock){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._pageId_(id))._with_(aBlock);
+$1=_st(_st(_st(self)._page())._id_(id))._with_(aBlock);
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"pageId:with:",{id:id,aBlock:aBlock},smalltalk.JqmCanvas)})},
-messageSends: ["with:", "pageId:"]}),
+messageSends: ["with:", "id:", "page"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -629,6 +645,17 @@ smalltalk.JqmCanvas.klass);
 
 
 smalltalk.addClass('JqmTagBrush', smalltalk.TagBrush, ['namespace'], 'Jqm-Canvas');
+smalltalk.addMethod(
+smalltalk.method({
+selector: "ariaLevel:",
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._at_put_("aria-level",value);
+return self}, function($ctx1) {$ctx1.fill(self,"ariaLevel:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["at:put:"]}),
+smalltalk.JqmTagBrush);
+
 smalltalk.addMethod(
 smalltalk.method({
 selector: "columnToggle",
@@ -1046,6 +1073,17 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "dataMini",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("mini","true");
+return self}, function($ctx1) {$ctx1.fill(self,"dataMini",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "dataMini:",
 fn: function (value){
 var self=this;
@@ -1217,6 +1255,61 @@ var self=this;
 return smalltalk.withContext(function($ctx1) { 
 _st(self)._dataAt_put_("theme",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataTheme:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeA",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","a");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeA",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeB",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","b");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeB",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeC",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","c");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeC",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeD",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","d");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeD",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataThemeE",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("theme","e");
+return self}, function($ctx1) {$ctx1.fill(self,"dataThemeE",{},smalltalk.JqmTagBrush)})},
 messageSends: ["dataAt:put:"]}),
 smalltalk.JqmTagBrush);
 
@@ -1437,6 +1530,17 @@ return smalltalk.withContext(function($ctx1) {
 _st(self)._dataMode_("reflow");
 return self}, function($ctx1) {$ctx1.fill(self,"reflow",{},smalltalk.JqmTagBrush)})},
 messageSends: ["dataMode:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "role:",
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._at_put_("role",value);
+return self}, function($ctx1) {$ctx1.fill(self,"role:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["at:put:"]}),
 smalltalk.JqmTagBrush);
 
 
