@@ -37,7 +37,7 @@ backButtonTo: refId
 !
 
 backRel
-	^self a dataRel: 'back'
+	^self a dataRel
 !
 
 button
@@ -93,11 +93,11 @@ dialogButtonTo: refId
 !
 
 dialogRel
-	^self a dataRel: 'dialog'
+	^self a dialogRel
 !
 
 externalRel
-	^self a dataRel: 'external'
+	^self a externalRel
 !
 
 externalRel: url
@@ -165,7 +165,7 @@ popup
 !
 
 popupRel
-	^self a dataRel: 'popup'
+	^self a popupRel
 !
 
 popupRel: refId
@@ -226,6 +226,10 @@ namespace: aString
 
 !JqmTagBrush methodsFor: 'actions'!
 
+backRel
+	self dataRel: 'back'
+!
+
 columnToggle
 	self dataMode: 'columntoggle'
 !
@@ -254,6 +258,14 @@ dataThemeE
 	self dataAt: 'theme' put: 'e'
 !
 
+dialogRel
+	self dataRel: 'dialog'
+!
+
+externalRel
+	^self dataRel: 'external'
+!
+
 horizontal
 	self dataType: 'horizontal'
 !
@@ -264,6 +276,10 @@ mini
 
 noAjax
 	self dataAjax: false
+!
+
+popupRel
+	^self dataRel: 'popup'
 !
 
 reflow
@@ -288,6 +304,10 @@ dataAddBackButton: value
 
 dataAjax: value
 	self dataAt: 'ajax' put: value
+!
+
+dataAnimate: value
+	self dataAt: 'animate' put: value
 !
 
 dataAt: key put: value
@@ -354,6 +374,10 @@ dataDisablePageZoom: value
 
 dataDismissible: value
 	self dataAt: 'dismissible' put: value
+!
+
+dataDisplay: value
+	self dataAt: 'display' put: value
 !
 
 dataDividerTheme: value
@@ -454,6 +478,10 @@ dataPlaceholder: value
 
 dataPosition: value
 	self dataAt: 'position' put: value
+!
+
+dataPositionFixed: value
+	self dataAt: 'position-fixed' put: value
 !
 
 dataPositionTo: value

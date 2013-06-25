@@ -20,10 +20,10 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._a())._dataRel_("back");
+$1=_st(_st(self)._a())._dataRel();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"backRel",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRel:", "a"]}),
+messageSends: ["dataRel", "a"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -205,10 +205,10 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._a())._dataRel_("dialog");
+$1=_st(_st(self)._a())._dialogRel();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"dialogRel",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRel:", "a"]}),
+messageSends: ["dialogRel", "a"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -218,10 +218,10 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._a())._dataRel_("external");
+$1=_st(_st(self)._a())._externalRel();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"externalRel",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRel:", "a"]}),
+messageSends: ["externalRel", "a"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -516,10 +516,10 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._a())._dataRel_("popup");
+$1=_st(_st(self)._a())._popupRel();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"popupRel",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRel:", "a"]}),
+messageSends: ["popupRel", "a"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -658,6 +658,17 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "backRel",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataRel_("back");
+return self}, function($ctx1) {$ctx1.fill(self,"backRel",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRel:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "columnToggle",
 fn: function (){
 var self=this;
@@ -686,6 +697,17 @@ var self=this;
 return smalltalk.withContext(function($ctx1) { 
 _st(self)._dataAt_put_("ajax",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataAjax:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataAnimate:",
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("animate",value);
+return self}, function($ctx1) {$ctx1.fill(self,"dataAnimate:",{value:value},smalltalk.JqmTagBrush)})},
 messageSends: ["dataAt:put:"]}),
 smalltalk.JqmTagBrush);
 
@@ -859,6 +881,17 @@ var self=this;
 return smalltalk.withContext(function($ctx1) { 
 _st(self)._dataAt_put_("dismissible",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataDismissible:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataDisplay:",
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("display",value);
+return self}, function($ctx1) {$ctx1.fill(self,"dataDisplay:",{value:value},smalltalk.JqmTagBrush)})},
 messageSends: ["dataAt:put:"]}),
 smalltalk.JqmTagBrush);
 
@@ -1150,6 +1183,17 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "dataPositionFixed:",
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataAt_put_("position-fixed",value);
+return self}, function($ctx1) {$ctx1.fill(self,"dataPositionFixed:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "dataPositionTo:",
 fn: function (value){
 var self=this;
@@ -1403,6 +1447,30 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "dialogRel",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataRel_("dialog");
+return self}, function($ctx1) {$ctx1.fill(self,"dialogRel",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRel:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "externalRel",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(self)._dataRel_("external");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"externalRel",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRel:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "horizontal",
 fn: function (){
 var self=this;
@@ -1519,6 +1587,19 @@ return smalltalk.withContext(function($ctx1) {
 _st(_st(self)._asJQuery())._on_of_do_(eventName,selector,aBlock);
 return self}, function($ctx1) {$ctx1.fill(self,"on:of:do:",{eventName:eventName,selector:selector,aBlock:aBlock},smalltalk.JqmTagBrush)})},
 messageSends: ["on:of:do:", "asJQuery"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "popupRel",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(self)._dataRel_("popup");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"popupRel",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRel:"]}),
 smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
