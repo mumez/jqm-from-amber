@@ -209,12 +209,12 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._div())._dataRole_("controlgroup");
+$1=_st(_st(self)._div())._controlGroup();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"controlGroup",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "controlGroup\x0a\x09^self div dataRole: 'controlgroup'",
-messageSends: ["dataRole:", "div"],
+source: "controlGroup\x0a\x09^self div controlGroup",
+messageSends: ["controlGroup", "div"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -443,12 +443,12 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._li())._dataRole_("list-divider");
+$1=_st(_st(self)._li())._listDivider();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"listDivider",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "listDivider\x0a\x09^self li dataRole: 'list-divider'",
-messageSends: ["dataRole:", "li"],
+source: "listDivider\x0a\x09^self li listDivider",
+messageSends: ["listDivider", "li"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -572,18 +572,18 @@ smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "ol",
+selector: "olist",
 category: 'tags',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(smalltalk.HTMLCanvas.fn.prototype._ol.apply(_st(self), []))._dataRole_("list-view");
+$1=_st(_st(self)._ol())._listView();
 return $1;
-}, function($ctx1) {$ctx1.fill(self,"ol",{},smalltalk.JqmCanvas)})},
+}, function($ctx1) {$ctx1.fill(self,"olist",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "ol\x0a\x09^super ol dataRole: 'list-view'",
-messageSends: ["dataRole:", "ol"],
+source: "olist\x0a\x09^self ol listView",
+messageSends: ["listView", "ol"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -830,18 +830,18 @@ smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "ul",
+selector: "ulist",
 category: 'tags',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(smalltalk.HTMLCanvas.fn.prototype._ul.apply(_st(self), []))._dataRole_("list-view");
+$1=_st(_st(self)._ul())._listView();
 return $1;
-}, function($ctx1) {$ctx1.fill(self,"ul",{},smalltalk.JqmCanvas)})},
+}, function($ctx1) {$ctx1.fill(self,"ulist",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "ul\x0a\x09^super ul dataRole: 'list-view'",
-messageSends: ["dataRole:", "ul"],
+source: "ulist\x0a\x09^self ul listView",
+messageSends: ["listView", "ul"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -929,6 +929,24 @@ return self}, function($ctx1) {$ctx1.fill(self,"columnToggle",{},smalltalk.JqmTa
 args: [],
 source: "columnToggle\x0a\x09self dataMode: 'columntoggle'",
 messageSends: ["dataMode:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "controlGroup",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(self)._dataRole_("controlgroup");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"controlGroup",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "controlGroup\x0a\x09^self dataRole: 'controlgroup'",
+messageSends: ["dataRole:"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);
@@ -2091,6 +2109,38 @@ return self}, function($ctx1) {$ctx1.fill(self,"horizontal",{},smalltalk.JqmTagB
 args: [],
 source: "horizontal\x0a\x09self dataType: 'horizontal'",
 messageSends: ["dataType:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "listDivider",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataRole_("list-divider");
+return self}, function($ctx1) {$ctx1.fill(self,"listDivider",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "listDivider\x0a\x09self dataRole: 'list-divider'",
+messageSends: ["dataRole:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "listView",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self)._dataRole_("listview");
+return self}, function($ctx1) {$ctx1.fill(self,"listView",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "listView\x0a\x09self dataRole: 'listview'",
+messageSends: ["dataRole:"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);

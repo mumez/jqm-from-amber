@@ -77,7 +77,7 @@ content: aBlock
 !
 
 controlGroup
-	^self div dataRole: 'controlgroup'
+	^self div controlGroup
 !
 
 controlGroup: aBlock
@@ -129,15 +129,15 @@ header: aBlock
 !
 
 listDivider
-	^self li dataRole: 'list-divider'
+	^self li listDivider
 !
 
 navbar
 	^self div dataRole: 'navbar'
 !
 
-ol
-	^super ol dataRole: 'list-view'
+olist
+	^self ol listView
 !
 
 page
@@ -192,8 +192,8 @@ table
 	^super table dataRole: 'table'
 !
 
-ul
-	^super ul dataRole: 'list-view'
+ulist
+	^self ul listView
 ! !
 
 !JqmCanvas class methodsFor: 'instance creation'!
@@ -234,6 +234,10 @@ columnToggle
 	self dataMode: 'columntoggle'
 !
 
+controlGroup
+	^self dataRole: 'controlgroup'
+!
+
 dataMini
 	self dataAt: 'mini' put: 'true'
 !
@@ -268,6 +272,14 @@ externalRel
 
 horizontal
 	self dataType: 'horizontal'
+!
+
+listDivider
+	self dataRole: 'list-divider'
+!
+
+listView
+	self dataRole: 'listview'
 !
 
 mini
