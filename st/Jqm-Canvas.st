@@ -40,10 +40,6 @@ backRel
 	^self a dataRel
 !
 
-button
-	^self a dataRole: 'button'
-!
-
 buttonLabeled: label to: refId
 	^(self buttonTo: refId) with: label
 !
@@ -53,7 +49,7 @@ buttonLabeled: label to: refId id: id
 !
 
 buttonTo: refId
-	^self button href: ('#', refId)
+	^self linkButton href: ('#', refId)
 !
 
 closeButton
@@ -126,6 +122,10 @@ header
 
 header: aBlock
 	^self header with: aBlock
+!
+
+linkButton
+	^self a button
 !
 
 listDivider
@@ -228,6 +228,10 @@ namespace: aString
 
 backRel
 	self dataRel: 'back'
+!
+
+button
+	^self dataRole: 'button'
 !
 
 columnToggle
@@ -584,5 +588,11 @@ on: eventName do: aBlock
 
 on: eventName of:  selector do: aBlock
 	self asJQuery on: eventName of: selector do: aBlock
+! !
+
+!JqmTagBrush methodsFor: 'option'!
+
+selected: aBoolean
+	aBoolean ifTrue: [self at: 'selected' put: 'true'] ifFalse: [self removeAt: 'selected']
 ! !
 

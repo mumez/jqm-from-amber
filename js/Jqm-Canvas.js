@@ -38,24 +38,6 @@ smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "button",
-category: 'tags',
-fn: function (){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(_st(self)._a())._dataRole_("button");
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"button",{},smalltalk.JqmCanvas)})},
-args: [],
-source: "button\x0a\x09^self a dataRole: 'button'",
-messageSends: ["dataRole:", "a"],
-referencedClasses: []
-}),
-smalltalk.JqmCanvas);
-
-smalltalk.addMethod(
-smalltalk.method({
 selector: "buttonLabeled:to:",
 category: 'tags',
 fn: function (label,refId){
@@ -101,12 +83,12 @@ fn: function (refId){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._button())._href_(_st("#").__comma(refId));
+$1=_st(self._linkButton())._href_("#".__comma(refId));
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"buttonTo:",{refId:refId},smalltalk.JqmCanvas)})},
 args: ["refId"],
-source: "buttonTo: refId\x0a\x09^self button href: ('#', refId)",
-messageSends: ["href:", ",", "button"],
+source: "buttonTo: refId\x0a\x09^self linkButton href: ('#', refId)",
+messageSends: ["href:", ",", "linkButton"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -431,6 +413,24 @@ return $1;
 args: ["aBlock"],
 source: "header: aBlock\x0a\x09^self header with: aBlock",
 messageSends: ["with:", "header"],
+referencedClasses: []
+}),
+smalltalk.JqmCanvas);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "linkButton",
+category: 'tags',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(self._a())._button();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"linkButton",{},smalltalk.JqmCanvas)})},
+args: [],
+source: "linkButton\x0a\x09^self a button",
+messageSends: ["button", "a"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -913,6 +913,24 @@ return self}, function($ctx1) {$ctx1.fill(self,"backRel",{},smalltalk.JqmTagBrus
 args: [],
 source: "backRel\x0a\x09self dataRel: 'back'",
 messageSends: ["dataRel:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "button",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._dataRole_("button");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"button",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "button\x0a\x09^self dataRole: 'button'",
+messageSends: ["dataRole:"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);
@@ -2345,6 +2363,28 @@ return self}, function($ctx1) {$ctx1.fill(self,"role:",{value:value},smalltalk.J
 args: ["value"],
 source: "role: value\x0a\x09self at: 'role' put: value",
 messageSends: ["at:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "selected:",
+category: 'option',
+fn: function (aBoolean){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=aBoolean;
+if(smalltalk.assert($1)){
+self._at_put_("selected","true");
+} else {
+self._removeAt_("selected");
+};
+return self}, function($ctx1) {$ctx1.fill(self,"selected:",{aBoolean:aBoolean},smalltalk.JqmTagBrush)})},
+args: ["aBoolean"],
+source: "selected: aBoolean\x0a\x09aBoolean ifTrue: [self at: 'selected' put: 'true'] ifFalse: [self removeAt: 'selected']",
+messageSends: ["ifTrue:ifFalse:", "at:put:", "removeAt:"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);

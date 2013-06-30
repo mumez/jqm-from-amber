@@ -28,19 +28,6 @@ smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "button",
-fn: function (){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(_st(self)._a())._dataRole_("button");
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"button",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRole:", "a"]}),
-smalltalk.JqmCanvas);
-
-smalltalk.addMethod(
-smalltalk.method({
 selector: "buttonLabeled:to:",
 fn: function (label,refId){
 var self=this;
@@ -75,10 +62,10 @@ fn: function (refId){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._button())._href_(_st("#").__comma(refId));
+$1=_st(self._linkButton())._href_("#".__comma(refId));
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"buttonTo:",{refId:refId},smalltalk.JqmCanvas)})},
-messageSends: ["href:", ",", "button"]}),
+messageSends: ["href:", ",", "linkButton"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -313,6 +300,19 @@ $1=_st(_st(self)._header())._with_(aBlock);
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"header:",{aBlock:aBlock},smalltalk.JqmCanvas)})},
 messageSends: ["with:", "header"]}),
+smalltalk.JqmCanvas);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "linkButton",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(self._a())._button();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"linkButton",{},smalltalk.JqmCanvas)})},
+messageSends: ["button", "a"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -665,6 +665,19 @@ return smalltalk.withContext(function($ctx1) {
 _st(self)._dataRel_("back");
 return self}, function($ctx1) {$ctx1.fill(self,"backRel",{},smalltalk.JqmTagBrush)})},
 messageSends: ["dataRel:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "button",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._dataRole_("button");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"button",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRole:"]}),
 smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
@@ -1657,6 +1670,23 @@ return smalltalk.withContext(function($ctx1) {
 _st(self)._at_put_("role",value);
 return self}, function($ctx1) {$ctx1.fill(self,"role:",{value:value},smalltalk.JqmTagBrush)})},
 messageSends: ["at:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "selected:",
+fn: function (aBoolean){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=aBoolean;
+if(smalltalk.assert($1)){
+self._at_put_("selected","true");
+} else {
+self._removeAt_("selected");
+};
+return self}, function($ctx1) {$ctx1.fill(self,"selected:",{aBoolean:aBoolean},smalltalk.JqmTagBrush)})},
+messageSends: ["ifTrue:ifFalse:", "at:put:", "removeAt:"]}),
 smalltalk.JqmTagBrush);
 
 
