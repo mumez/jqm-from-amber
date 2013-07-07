@@ -317,12 +317,12 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._div())._dataRole_("fieldcontain");
+$1=_st(self._div())._fieldContain();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"fieldContain",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "fieldContain\x0a\x09^self div dataRole: 'fieldcontain'",
-messageSends: ["dataRole:", "div"],
+source: "fieldContain\x0a\x09^self div fieldContain",
+messageSends: ["fieldContain", "div"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -689,12 +689,12 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._div())._dataRole_("popup");
+$1=_st(self._div())._popup();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"popup",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "popup\x0a\x09^self div dataRole: 'popup'",
-messageSends: ["dataRole:", "div"],
+source: "popup\x0a\x09^self div popup",
+messageSends: ["popup", "div"],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -1555,6 +1555,22 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "dataInline",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+self._dataAt_put_("inline","true");
+return self}, function($ctx1) {$ctx1.fill(self,"dataInline",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "dataInline\x0a\x09self dataAt: 'inline' put: 'true'",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "dataInline:",
 category: 'data attributes',
 fn: function (value){
@@ -1644,6 +1660,22 @@ _st(self)._dataAt_put_("native-menu",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataNativeMenu:",{value:value},smalltalk.JqmTagBrush)})},
 args: ["value"],
 source: "dataNativeMenu: value\x0a\x09self dataAt: 'native-menu' put: value",
+messageSends: ["dataAt:put:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataOptions:",
+category: 'data attributes',
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+self._dataAt_put_("options",value);
+return self}, function($ctx1) {$ctx1.fill(self,"dataOptions:",{value:value},smalltalk.JqmTagBrush)})},
+args: ["value"],
+source: "dataOptions: value\x0a\x09self dataAt: 'options' put: value",
 messageSends: ["dataAt:put:"],
 referencedClasses: []
 }),
@@ -2117,6 +2149,24 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "fieldContain",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._dataRole_("fieldcontain");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"fieldContain",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "fieldContain\x0a\x09^self dataRole: 'fieldcontain'",
+messageSends: ["dataRole:"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "horizontal",
 category: 'actions',
 fn: function (){
@@ -2313,6 +2363,24 @@ return self}, function($ctx1) {$ctx1.fill(self,"on:of:do:",{eventName:eventName,
 args: ["eventName", "selector", "aBlock"],
 source: "on: eventName of:  selector do: aBlock\x0a\x09self asJQuery on: eventName of: selector do: aBlock",
 messageSends: ["on:of:do:", "asJQuery"],
+referencedClasses: []
+}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "popup",
+category: 'actions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._dataRole_("popup");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"popup",{},smalltalk.JqmTagBrush)})},
+args: [],
+source: "popup\x0a\x09^self dataRole: 'popup'",
+messageSends: ["dataRole:"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);

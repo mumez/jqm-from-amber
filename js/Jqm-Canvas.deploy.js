@@ -231,10 +231,10 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._div())._dataRole_("fieldcontain");
+$1=_st(self._div())._fieldContain();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"fieldContain",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRole:", "div"]}),
+messageSends: ["fieldContain", "div"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -503,10 +503,10 @@ fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
 var $1;
-$1=_st(_st(self)._div())._dataRole_("popup");
+$1=_st(self._div())._popup();
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"popup",{},smalltalk.JqmCanvas)})},
-messageSends: ["dataRole:", "div"]}),
+messageSends: ["popup", "div"]}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -1110,6 +1110,17 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "dataInline",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+self._dataAt_put_("inline","true");
+return self}, function($ctx1) {$ctx1.fill(self,"dataInline",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "dataInline:",
 fn: function (value){
 var self=this;
@@ -1171,6 +1182,17 @@ var self=this;
 return smalltalk.withContext(function($ctx1) { 
 _st(self)._dataAt_put_("native-menu",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataNativeMenu:",{value:value},smalltalk.JqmTagBrush)})},
+messageSends: ["dataAt:put:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "dataOptions:",
+fn: function (value){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+self._dataAt_put_("options",value);
+return self}, function($ctx1) {$ctx1.fill(self,"dataOptions:",{value:value},smalltalk.JqmTagBrush)})},
 messageSends: ["dataAt:put:"]}),
 smalltalk.JqmTagBrush);
 
@@ -1497,6 +1519,19 @@ smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "fieldContain",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._dataRole_("fieldcontain");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"fieldContain",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRole:"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "horizontal",
 fn: function (){
 var self=this;
@@ -1635,6 +1670,19 @@ return smalltalk.withContext(function($ctx1) {
 _st(_st(self)._asJQuery())._on_of_do_(eventName,selector,aBlock);
 return self}, function($ctx1) {$ctx1.fill(self,"on:of:do:",{eventName:eventName,selector:selector,aBlock:aBlock},smalltalk.JqmTagBrush)})},
 messageSends: ["on:of:do:", "asJQuery"]}),
+smalltalk.JqmTagBrush);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "popup",
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._dataRole_("popup");
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"popup",{},smalltalk.JqmTagBrush)})},
+messageSends: ["dataRole:"]}),
 smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(

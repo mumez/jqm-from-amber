@@ -101,7 +101,7 @@ externalRel: url
 !
 
 fieldContain
-	^self div dataRole: 'fieldcontain'
+	^self div fieldContain
 !
 
 fieldContain: aBlock
@@ -161,7 +161,7 @@ panel
 !
 
 popup
-	^self div dataRole: 'popup'
+	^self div popup
 !
 
 popupRel
@@ -242,6 +242,10 @@ controlGroup
 	^self dataRole: 'controlgroup'
 !
 
+dataInline
+	self dataAt: 'inline' put: 'true'
+!
+
 dataMini
 	self dataAt: 'mini' put: 'true'
 !
@@ -274,6 +278,10 @@ externalRel
 	^self dataRel: 'external'
 !
 
+fieldContain
+	^self dataRole: 'fieldcontain'
+!
+
 horizontal
 	self dataType: 'horizontal'
 !
@@ -292,6 +300,10 @@ mini
 
 noAjax
 	self dataAjax: false
+!
+
+popup
+	^self dataRole: 'popup'
 !
 
 popupRel
@@ -482,6 +494,10 @@ dataMode: value
 
 dataNativeMenu: value
 	self dataAt: 'native-menu' put: value
+!
+
+dataOptions: value
+	self dataAt: 'options' put: value
 !
 
 dataOverlayTheme: value
