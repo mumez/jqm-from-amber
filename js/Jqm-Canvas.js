@@ -460,13 +460,11 @@ category: 'accessing',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(_st(self)._root())._mobile();
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"mobile",{},smalltalk.JqmCanvas)})},
+return $.mobile;
+return self}, function($ctx1) {$ctx1.fill(self,"mobile",{},smalltalk.JqmCanvas)})},
 args: [],
-source: "mobile\x0a\x09^ self root mobile",
-messageSends: ["mobile", "root"],
+source: "mobile\x0a\x09<return $.mobile>\x0a\x09",
+messageSends: [],
 referencedClasses: []
 }),
 smalltalk.JqmCanvas);
@@ -2236,13 +2234,20 @@ category: 'accessing',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(_st(self)._asJQuery())._mobile();
+var $2,$1;
+$2=self["@canvas"];
+if(($receiver = $2) == nil || $receiver == undefined){
+$1=$2;
+} else {
+var cv;
+cv=$receiver;
+$1=_st(cv)._mobile();
+};
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"mobile",{},smalltalk.JqmTagBrush)})},
 args: [],
-source: "mobile\x0a\x09^self asJQuery mobile",
-messageSends: ["mobile", "asJQuery"],
+source: "mobile\x0a\x09^canvas ifNotNil: [:cv | cv mobile]",
+messageSends: ["ifNotNil:", "mobile"],
 referencedClasses: []
 }),
 smalltalk.JqmTagBrush);

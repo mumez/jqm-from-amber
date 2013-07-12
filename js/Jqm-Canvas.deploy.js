@@ -334,11 +334,9 @@ selector: "mobile",
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(_st(self)._root())._mobile();
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"mobile",{},smalltalk.JqmCanvas)})},
-messageSends: ["mobile", "root"]}),
+return $.mobile;
+return self}, function($ctx1) {$ctx1.fill(self,"mobile",{},smalltalk.JqmCanvas)})},
+messageSends: []}),
 smalltalk.JqmCanvas);
 
 smalltalk.addMethod(
@@ -1580,11 +1578,18 @@ selector: "mobile",
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(_st(self)._asJQuery())._mobile();
+var $2,$1;
+$2=self["@canvas"];
+if(($receiver = $2) == nil || $receiver == undefined){
+$1=$2;
+} else {
+var cv;
+cv=$receiver;
+$1=_st(cv)._mobile();
+};
 return $1;
 }, function($ctx1) {$ctx1.fill(self,"mobile",{},smalltalk.JqmTagBrush)})},
-messageSends: ["mobile", "asJQuery"]}),
+messageSends: ["ifNotNil:", "mobile"]}),
 smalltalk.JqmTagBrush);
 
 smalltalk.addMethod(

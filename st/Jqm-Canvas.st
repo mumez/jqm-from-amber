@@ -6,7 +6,7 @@ HTMLCanvas subclass: #JqmCanvas
 !JqmCanvas methodsFor: 'accessing'!
 
 mobile
-	^ self root mobile
+	<return $.mobile>
 !
 
 namespace
@@ -213,7 +213,7 @@ TagBrush subclass: #JqmTagBrush
 !JqmTagBrush methodsFor: 'accessing'!
 
 mobile
-	^self asJQuery mobile
+	^canvas ifNotNil: [:cv | cv mobile]
 !
 
 namespace
