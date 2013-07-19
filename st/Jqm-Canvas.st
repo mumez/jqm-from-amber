@@ -242,34 +242,6 @@ controlGroup
 	^self dataRole: 'controlgroup'
 !
 
-dataInline
-	self dataAt: 'inline' put: 'true'
-!
-
-dataMini
-	self dataAt: 'mini' put: 'true'
-!
-
-dataThemeA
-	self dataAt: 'theme' put: 'a'
-!
-
-dataThemeB
-	self dataAt: 'theme' put: 'b'
-!
-
-dataThemeC
-	self dataAt: 'theme' put: 'c'
-!
-
-dataThemeD
-	self dataAt: 'theme' put: 'd'
-!
-
-dataThemeE
-	self dataAt: 'theme' put: 'e'
-!
-
 dialogRel
 	self dataRel: 'dialog'
 !
@@ -286,6 +258,10 @@ horizontal
 	self dataType: 'horizontal'
 !
 
+inline
+	self dataAt: 'inline' put: 'true'
+!
+
 listDivider
 	self dataRole: 'list-divider'
 !
@@ -295,11 +271,15 @@ listView
 !
 
 mini
-	self dataMini: true
+	self dataAt: 'mini' put: 'true'
 !
 
 noAjax
 	self dataAjax: false
+!
+
+noText
+	self dataIconPos: 'notext'
 !
 
 popup
@@ -312,6 +292,26 @@ popupRel
 
 reflow
 	self dataMode: 'reflow'
+!
+
+themeA
+	self dataAt: 'theme' put: 'a'
+!
+
+themeB
+	self dataAt: 'theme' put: 'b'
+!
+
+themeC
+	self dataAt: 'theme' put: 'c'
+!
+
+themeD
+	self dataAt: 'theme' put: 'd'
+!
+
+themeE
+	self dataAt: 'theme' put: 'e'
 ! !
 
 !JqmTagBrush methodsFor: 'aria'!
