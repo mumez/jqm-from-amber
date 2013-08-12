@@ -1206,7 +1206,7 @@ category: 'data attributes',
 fn: function (value){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-_st(self)._dataAt_put_("count-theme",value);
+self._dataAt_put_("count-theme",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataCountTheme:",{value:value},smalltalk.JqmTagBrush)})},
 args: ["value"],
 source: "dataCountTheme: value\x0a\x09self dataAt: 'count-theme' put: value",

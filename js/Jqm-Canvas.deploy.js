@@ -870,7 +870,7 @@ selector: "dataCountTheme:",
 fn: function (value){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-_st(self)._dataAt_put_("count-theme",value);
+self._dataAt_put_("count-theme",value);
 return self}, function($ctx1) {$ctx1.fill(self,"dataCountTheme:",{value:value},smalltalk.JqmTagBrush)})},
 messageSends: ["dataAt:put:"]}),
 smalltalk.JqmTagBrush);
